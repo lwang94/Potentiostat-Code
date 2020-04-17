@@ -53,7 +53,7 @@ def It_measurement():
             
             #Read ADC value from Arduino and writes data to file
             value=struct.unpack('>h', arduino.read(2))[0] #reads two bytes from Arduino (presumably the file 'python_communication.ino' has been uploaded to the Arduino)
-            f.write('%d, %f, %d, f\n'%(i, end-start, value, (value*-0.000062636+0.0005)*500)) #writes data to file
+            f.write('%d, %f, %d, %f\n'%(i, end-start, value, (value*-0.000062636+0.0005)*500)) #writes data to file
             time.sleep(1.0/float(scan_rate)) #pauses the program to be in line with scan rate
 
 arduino = serial.Serial('COM6', 9600) #connects Python to the serial port   
